@@ -10,7 +10,7 @@ Added CMS
 
 Added Authentication
 
-Want to Add, 
+Wiki
 
-#Wiki
-#Shoes Community Blog
+Want to Add, 
+* Shoes Community Blog
