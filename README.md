@@ -1,4 +1,4 @@
-== shoes.heroku.com ==
+# shoes.heroku.com
 
 This is the new Shoes website. Currently not much is going on.
 
