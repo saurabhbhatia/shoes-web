@@ -218,3 +218,167 @@ Rendering comatose_admin/index
   [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `comatose_pages` WHERE (`comatose_pages`.parent_id = 1) [0m
 Rendered comatose_admin/_page_list_item (7.3ms)
 Completed in 28ms (View: 12, DB: 2) | 200 OK [http://localhost/comatose_admin]
+  [4;36;1mSQL (156.8ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (31.4ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (240.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (754.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddComatoseSupport (20090827055630)
+Migrating to CreateUsers (20090827065754)
+Migrating to CreateWikiPages (20090827114828)
+  [4;36;1mSQL (1318.6ms)[0m   [0;1mCREATE TABLE `wiki_pages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `slug` varchar(255), `body` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (161.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090827114828')[0m
+  [4;36;1mSQL (30.1ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (53.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (403.3ms)[0m   [0mSHOW FIELDS FROM `comatose_page_versions`[0m
+  [4;36;1mSQL (19.1ms)[0m   [0;1mdescribe `comatose_page_versions`[0m
+  [4;35;1mSQL (9.9ms)[0m   [0mSHOW KEYS FROM `comatose_page_versions`[0m
+  [4;36;1mSQL (36.7ms)[0m   [0;1mSHOW FIELDS FROM `comatose_pages`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mdescribe `comatose_pages`[0m
+  [4;36;1mSQL (13.7ms)[0m   [0;1mSHOW KEYS FROM `comatose_pages`[0m
+  [4;35;1mSQL (18.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (16.9ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (11.3ms)[0m   [0;1mSHOW FIELDS FROM `wiki_pages`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mdescribe `wiki_pages`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `wiki_pages`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (11.8ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WikiPagesController#index (for 127.0.0.1 at 2009-08-27 17:23:53) [GET]
+  [4;36;1mWikiPage Load (0.8ms)[0m   [0;1mSELECT * FROM `wiki_pages` [0m
+Rendering template within layouts/wiki_pages
+Rendering wiki_pages/index
+
+ActionView::TemplateError (undefined local variable or method `new_wiki_page_path' for #<ActionView::Base:0xb712dee8>) on line #26 of app/views/wiki_pages/index.html.erb:
+23: 
+24: <br />
+25: 
+26: <%= link_to 'New wiki_page', new_wiki_page_path %>
+
+    app/views/wiki_pages/index.html.erb:26
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/wiki_pages_controller.rb:7:in `index'
+    haml (2.2.0) lib/sass/plugin/rails.rb:19:in `process'
+
+Rendered rescues/_trace (320.5ms)
+Rendered rescues/_request_and_response (25.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WikiPagesController#new (for 127.0.0.1 at 2009-08-27 17:27:26) [GET]
+  [4;36;1mWikiPage Columns (25.6ms)[0m   [0;1mSHOW FIELDS FROM `wiki_pages`[0m
+Rendering template within layouts/wiki_pages
+Rendering wiki_pages/new
+
+ActionView::TemplateError (undefined method `wiki_pages_path' for #<ActionView::Base:0xb6fe1198>) on line #3 of app/views/wiki_pages/new.html.erb:
+1: <h1>New wiki_page</h1>
+2: 
+3: <% form_for(@wiki_page) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:167:in `form_for'
+    app/views/wiki_pages/new.html.erb:3
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/wiki_pages_controller.rb:29:in `new'
+    haml (2.2.0) lib/sass/plugin/rails.rb:19:in `process'
+
+Rendered rescues/_trace (250.2ms)
+Rendered rescues/_request_and_response (2.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WikiPagesController#index (for 127.0.0.1 at 2009-08-27 17:28:49) [GET]
+  [4;35;1mWikiPage Load (0.9ms)[0m   [0mSELECT * FROM `wiki_pages` [0m
+Rendering template within layouts/wiki_pages
+Rendering wiki_pages/index
+Completed in 163ms (View: 155, DB: 1) | 200 OK [http://localhost/wiki_pages]
+  [4;36;1mSQL (322.7ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (98.8ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WikiPagesController#index (for 127.0.0.1 at 2009-08-27 17:46:07) [GET]
+  [4;36;1mWikiPage Load (890.6ms)[0m   [0;1mSELECT * FROM `wiki_pages` [0m
+Rendering template within layouts/wiki_pages
+Rendering wiki_pages/index
+Completed in 1058ms (View: 148, DB: 1312) | 200 OK [http://localhost/wiki_pages]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WikiPagesController#new (for 127.0.0.1 at 2009-08-27 17:46:19) [GET]
+  [4;35;1mWikiPage Columns (266.5ms)[0m   [0mSHOW FIELDS FROM `wiki_pages`[0m
+Rendering template within layouts/wiki_pages
+Rendering wiki_pages/new
+Completed in 318ms (View: 45, DB: 267) | 200 OK [http://localhost/wiki_pages/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WikiPagesController#create (for 127.0.0.1 at 2009-08-27 17:46:55) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"k2amZu7Ktcwq7EGnhZ9IJXt8My3SYg9QoB1VqOf1LFM=", "wiki_page"=>{"updated_at(1i)"=>"2009", "slug"=>"First Page", "updated_at(2i)"=>"8", "created_at(1i)"=>"2009", "updated_at(3i)"=>"27", "created_at(2i)"=>"8", "body"=>"This is the first Wiki Page", "updated_at(4i)"=>"17", "created_at(3i)"=>"27", "updated_at(5i)"=>"46", "created_at(4i)"=>"17", "created_at(5i)"=>"46"}}
+  [4;36;1mWikiPage Columns (78.5ms)[0m   [0;1mSHOW FIELDS FROM `wiki_pages`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mWikiPage Create (315.1ms)[0m   [0;1mINSERT INTO `wiki_pages` (`slug`, `created_at`, `body`, `updated_at`) VALUES('First Page', '2009-08-27 17:46:00', 'This is the first Wiki Page', '2009-08-27 17:46:00')[0m
+  [4;35;1mSQL (41.5ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/wiki_pages/1
+Completed in 878ms (DB: 436) | 302 Found [http://localhost/wiki_pages]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WikiPagesController#show (for 127.0.0.1 at 2009-08-27 17:46:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mWikiPage Columns (25.1ms)[0m   [0;1mSHOW FIELDS FROM `wiki_pages`[0m
+  [4;35;1mWikiPage Load (7.9ms)[0m   [0mSELECT * FROM `wiki_pages` WHERE (`wiki_pages`.`id` = 1) [0m
+Rendering template within layouts/wiki_pages
+Rendering wiki_pages/show
+
+ActionView::TemplateError (undefined method `wiki_content' for #<WikiPage:0xb7361598>) on line #6 of app/views/wiki_pages/show.html.erb:
+3:   <%=h @wiki_page.slug %>
+4: </p>
+5: <p>
+6: <%= @wiki_page.wiki_content %>
+7: </p>
+8: <p>
+9:   <b>Body:</b>
+
+    app/views/wiki_pages/show.html.erb:6
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/wiki_pages_controller.rb:18:in `show'
+    haml (2.2.0) lib/sass/plugin/rails.rb:19:in `process'
+
+Rendered rescues/_trace (66.0ms)
+Rendered rescues/_request_and_response (20.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WikiPagesController#show (for 127.0.0.1 at 2009-08-27 17:47:46) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mWikiPage Columns (27.1ms)[0m   [0;1mSHOW FIELDS FROM `wiki_pages`[0m
+  [4;35;1mWikiPage Load (0.3ms)[0m   [0mSELECT * FROM `wiki_pages` WHERE (`wiki_pages`.`id` = 1) [0m
+Rendering template within layouts/wiki_pages
+Rendering wiki_pages/show
+Completed in 74ms (View: 31, DB: 28) | 200 OK [http://localhost/wiki_pages/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WikiPagesController#index (for 127.0.0.1 at 2009-08-27 17:47:52) [GET]
+  [4;36;1mWikiPage Load (28.2ms)[0m   [0;1mSELECT * FROM `wiki_pages` [0m
+Rendering template within layouts/wiki_pages
+Rendering wiki_pages/index
+  [4;35;1mWikiPage Columns (15.4ms)[0m   [0mSHOW FIELDS FROM `wiki_pages`[0m
+Completed in 69ms (View: 12, DB: 44) | 200 OK [http://localhost/wiki_pages]

@@ -1,0 +1,23 @@
+<p>
+  <b>Slug:</b>
+  <%=h @wiki_page.slug %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @wiki_page.body %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%=h @wiki_page.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%=h @wiki_page.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_wiki_page_path(@wiki_page) %> |
+<%= link_to 'Back', wiki_pages_path %>

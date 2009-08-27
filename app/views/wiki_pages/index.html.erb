@@ -1,0 +1,26 @@
+<h1>Listing wiki_pages</h1>
+
+<table>
+  <tr>
+    <th>Slug</th>
+    <th>Body</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+  </tr>
+
+<% @wiki_pages.each do |wiki_page| %>
+  <tr>
+    <td><%=h wiki_page.slug %></td>
+    <td><%=h wiki_page.body %></td>
+    <td><%=h wiki_page.created_at %></td>
+    <td><%=h wiki_page.updated_at %></td>
+    <td><%= link_to 'Show', wiki_page %></td>
+    <td><%= link_to 'Edit', edit_wiki_page_path(wiki_page) %></td>
+    <td><%= link_to 'Destroy', wiki_page, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New wiki_page', new_wiki_page_path %>

@@ -1,0 +1,28 @@
+<h1>Editing wiki_page</h1>
+
+<% form_for(@wiki_page) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :slug %><br />
+    <%= f.text_field :slug %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.label :created_at %><br />
+    <%= f.datetime_select :created_at %>
+  </p>
+  <p>
+    <%= f.label :updated_at %><br />
+    <%= f.datetime_select :updated_at %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @wiki_page %> |
+<%= link_to 'Back', wiki_pages_path %>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090827065754) do
+ActiveRecord::Schema.define(:version => 20090827114828) do
 
   create_table "comatose_page_versions", :force => true do |t|
     t.integer  "comatose_page_id"
@@ -55,5 +55,12 @@ ActiveRecord::Schema.define(:version => 20090827065754) do
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
+
+  create_table "wiki_pages", :force => true do |t|
+    t.string   "slug"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
